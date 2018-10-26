@@ -12,7 +12,7 @@ $(function (){
       data: {
         page: page,
         pageSize: pageSize
-      },
+      }, 
       success: function(info){
         // console.log(info);
         // 绑定模板

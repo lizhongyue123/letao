@@ -80,7 +80,7 @@ $('form').on("success.form.bv",function(e){
 
 //重置表单功能,并且会隐藏所有的错误提示和图标
 $(".reset").on('click',function () {
-  $('form').data("bootstrapValidator").resetForm();
+  $('form').data("bootstrapValidator").resetForm(true);
 })
 
 
