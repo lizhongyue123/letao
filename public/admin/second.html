@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
   <link rel="stylesheet" href="./css/common.css">
-  <title>首页</title>
+  <title>二级分类</title>
 </head>
 
 <body>
@@ -32,9 +32,9 @@
           <li class="category">
             <a href="javascript:;">
               <i class="glyphicon glyphicon-list"></i> 分类管理</a>
-            <div class="second" style="display: none;">
+            <div class="second">
               <a href="first.html">一级分类</a>
-              <a href="second.html">二级分类</a>
+              <a href="second.html" class="active">二级分类</a>
             </div>
           </li>
           <li>
@@ -62,14 +62,14 @@
           <li>
             <a href="#">管理系统</a>
           </li>
-          <li class="active">首页</li>
+          <li>
+            <a href="#">分类管理</a>
+          </li>
+          <li class="active">二级分类</li>
         </ol>
 
         <!-- 具体内容 -->
-        <div class="lt_content">
-          <div class="pic_left pull-left" style="width:45%;height: 500px;"></div>
-          <div class="pic_right pull-right" style="width:45%;height: 500px;"></div>
-        </div>
+        <div class="lt_content"></div>
       </div>
     </div>
   </div>
@@ -101,9 +101,7 @@
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
-  <script src="./lib/echarts/echarts.min.js"></script>
   <script src="./js/common.js"></script>
-  <script src="./js/index.js"></script>
 </body>
 
 </html>
