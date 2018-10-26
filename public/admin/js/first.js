@@ -33,7 +33,7 @@ $(function () {
   render();
 
 
-  // 给添加分类按钮注册点击事件
+  // 给添加分类按钮注册点击事件,显示模态框
   $('.btn_add').on("click", function () {
     $("#addModal").modal("show");
   })
@@ -58,7 +58,9 @@ $(function () {
     },
   })
 
-  $(".add").on('success.form.bv',function(){
+
+  $(".add").on('success.form.bv',function(e){
+    e.preventDefault();
     $.ajax({
       type:'post',
       url:'/category/addTopCategory',

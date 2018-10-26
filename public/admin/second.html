@@ -69,10 +69,52 @@
         </ol>
 
         <!-- 具体内容 -->
-        <div class="lt_content"></div>
+        <div class="lt_content">
+          <button class="btn btn-default mb_15 btn_add">添加分类</button>
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 10%;">序号</th>
+                <th style="width: 30%;">一级分类名称</th>
+                <th style="width: 30%;">二级分类名称</th>
+                <th style="width: 30%;">二级分类LOGO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 动态渲染数据 tmp-->
+            </tbody>
+          </table>
+
+          <!-- 分页 -->
+          <div class="text-right">
+            <ul id="paginator"></ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- 模板引擎 -->
+  <script type='text/template' id="tmp">
+    {{ each rows v i }}
+    <tr>
+        <td>{{ (page-1)*size + i+1 }}</td>
+        <td>{{v.categoryName}}</td>
+        <td>{{v.brandName}}</td>
+        <td><img src="{{v.brandLogo}}" width="50" height="50"></td>
+      </tr>
+    {{ /each }}
+  </script>
+
+  <!-- 模态框中的一级分类模板引擎  -->
+  <script type="text/template" id="tmp1">
+    {{ each rows v i }}
+    <li data-id={{v.id}}>
+      <a href="#">{{ v.categoryName }}</a>
+    </li>
+    {{ /each }}
+  
+  </script>
 
 
   <!-- 退出的模态框 -->
@@ -86,7 +128,8 @@
           <h4 class="modal-title">温馨提示</h4>
         </div>
         <div class="modal-body">
-          <p class="text-danger"><i class="glyphicon glyphicon-info-sign"></i> 您确定要退出后台管理系统吗？</p>
+          <p class="text-danger">
+            <i class="glyphicon glyphicon-info-sign"></i> 您确定要退出后台管理系统吗？</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -96,12 +139,70 @@
     </div>
   </div>
 
+  <!-- 添加分类的模态框 -->
+  <form>
+    <div class="modal fade" tabindex="-1" id="addModal">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <h4 class="modal-title">添加分类</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                  <span class="dropdown_text">请选择一级分类</span>
+                  <span class="caret"></span>
+                </button>
+                <!-- 所属分类id的隐藏域 -->
+                <input type="hidden" name="categoryId">
+                <ul class="dropdown-menu">
+                  <!-- 动态渲染数据tmp1 -->
+                </ul>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" autocomplete="off" name="brandName" placeholder="请输入二级分类的名称">
+            </div>
+            <div class="form-group">
+              <label for="file" class="btn btn-default">上传图片</label>
+              <input type="file" id="file" style="display: none;" name="pic1" 
+                      data-url='/category/addSecondCategoryPic'>
+            </div>
+            <div class="form-group img_box">
+              <img src="./images/none.png" alt="" width="100" height="100">
+              <!-- 品牌logo图片地址的隐藏域 -->
+              <input type="hidden" name="brandLogo">
+              <!-- 火热的品牌 -->
+              <input type="hidden" name="hot" value="1">
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary add">添加</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
 
   <script src="./lib/jquery/jquery.js"></script>
+  <!-- jquery-fileupload依赖与jquery -->
+  <!-- jquery ui小部件，上传插件依赖了jquery ui的小部件 -->
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
   <script src="./js/common.js"></script>
+  <script src="./js/second.js"></script>
 </body>
 
 </html>
