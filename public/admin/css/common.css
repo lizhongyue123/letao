@@ -103,6 +103,11 @@ html,body{
   line-height: 50px;
 }
 
-
+/* 用户管理中的表格 */
+.table.table-bordered th,
+.table.table-bordered td{
+  text-align: center;
+  vertical-align: middle;
+}
 
 
