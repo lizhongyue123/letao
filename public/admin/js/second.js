@@ -123,7 +123,7 @@ $(function () {
   })
 
 
-  // 给添加按钮注册点击事件
+  // 给模态框中的添加按钮注册点击事件
   $('form').on('success.form.bv',function(e){
     e.preventDefault();
     $.ajax({
@@ -137,6 +137,10 @@ $(function () {
           $('form').data('bootstrapValidator').resetForm(true);
           page = 1;
           render();
+          // 手动重置样式
+          $(".dropdown_text").html('请选择一级分类');
+          $(".img_box img").attr("src",'./images/none.png');
+
         }
       }
     })
