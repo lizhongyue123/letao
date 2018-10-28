@@ -1,0 +1,16 @@
+.myForm {
+  padding: 10px;
+}
+.myForm .vcode_wrap input {
+  width: 65%;
+}
+.myForm .vcode_wrap .btn_vcode {
+  width: 30%;
+}
+.myForm .btn_register {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  line-height: 40px;
+}

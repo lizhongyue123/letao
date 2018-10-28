@@ -1,0 +1,34 @@
+.lt_left {
+  width: 90px;
+  position: relative;
+  float: left;
+  height: 100%;
+}
+.lt_left li {
+  width: 90px;
+  height: 50px;
+  background-color: pink;
+  border-right: 1px solid red;
+  border-bottom: 1px solid red;
+  text-align: center;
+  line-height: 50px;
+}
+.lt_left li.active {
+  background-color: #fff;
+  border-right: none;
+}
+.lt_right {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+.lt_right li {
+  width: 33.3%;
+  float: left;
+  text-align: center;
+}
+.lt_right li img {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto;
+}
